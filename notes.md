@@ -19,7 +19,7 @@
 
 #### Terraform State File
 
-- The state file is extremely important to Terraform. It maps real world resources to your configuration, and holds important metadata about each resource. 
-- This file must be saved and distributed to anyone who might run Terraform. This is why it is recommended to use a remote backend for storing state, such as Azure Storage, so that everyone on your team can access the same state.
+- The state file is extremely important to Terraform. It maps real world resources to your configuration, and holds important metadata about each resource.
+- The state file will likely contain sensitive values. DO NOT shared this file in source control.
 
 

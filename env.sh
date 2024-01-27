@@ -17,7 +17,7 @@ function tooling_image {
     drh \
       -v "${ROOT_DIR}/.config/terraform:/root/.terraform.d" \
       -v "${ROOT_DIR}/.config/azure:/root/.azure" \
-      mattwiley/tf:az-01-311689b ${command_str}
+      mattwiley/tf:az-01 ${command_str}
 }
 
 
