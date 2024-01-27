@@ -1,4 +1,8 @@
 
+ROOT_DIR="$(pwd)"
+
+# Source ARM environment variables
+source .local/arm_env.sh
 
 function drh {
     if [[ -z "${@}" ]]; then
@@ -8,7 +12,16 @@ function drh {
     fi
 }
 
-alias terraform="drh -v $(pwd)/.config/terraform:/root/.terraform.d hashicorp/terraform:1.7.1"
+function tooling_image {
+    local command_str="${@}"
+    drh \
+      -v "${ROOT_DIR}/.config/terraform:/root/.terraform.d" \
+      -v "${ROOT_DIR}/.config/azure:/root/.azure" \
+      mattwiley/tf:az-01-311689b ${command_str}
+}
+
+
+alias terraform="tooling_image terraform"
 alias tf="terraform"
 
-alias az="drh -v $(pwd)/.config/azure:/root/.azure mcr.microsoft.com/azure-cli:2.56.0 az"
+alias az="tooling_image az"
