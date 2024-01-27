@@ -20,6 +20,6 @@
 #### Terraform State File
 
 - The state file is extremely important to Terraform. It maps real world resources to your configuration, and holds important metadata about each resource.
-- The state file will likely contain sensitive values. DO NOT shared this file in source control.
+- The state file will likely contain sensitive values. DO NOT share this file in source control.
 
 
